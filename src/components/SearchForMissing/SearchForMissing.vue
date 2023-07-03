@@ -55,6 +55,12 @@
                   ابحث الأن
                 </button>
               </div>
+              <p
+                class="form-group col-auto mx-auto d-block text-danger"
+                v-if="err"
+              >
+                {{ err }}
+              </p>
             </div>
           </div>
         </form>
@@ -105,6 +111,7 @@ export default {
       user: [],
       image: "https://missing-person.online/public/images/",
       show: false,
+      err: "",
     };
   },
   validations() {
@@ -130,12 +137,15 @@ export default {
 
         axios
           .post(
-            "https://3894-156-214-155-213.eu.ngrok.io/recognize_faces",
+            "https://f809-197-53-248-20.eu.ngrok.io/recognize_faces",
             formData
           )
           .then((response) => {
             this.id = response.data[0].id;
             console.log(this.id);
+            if (this.id === "Unknown") {
+              this.err = "هذا الطفل غير موجود ";
+            }
             axios
               .get(
                 `https://missing-person.online/public/api/missing/${this.id}`
