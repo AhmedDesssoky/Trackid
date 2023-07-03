@@ -209,6 +209,7 @@ export default {
       imagerequred: "",
       imagerequred2: "",
       imagerequred3: "",
+      id: null,
     };
   },
   validations() {
@@ -338,8 +339,27 @@ export default {
             },
           })
           .then((response) => {
-            console.log(response);
+            console.log(response.data.data.id);
+            this.id = response.data.data.id;
             this.redirectTo({ val: "ThePerson" });
+
+            const data = new FormData();
+            data.append("id", this.id);
+            data.append("image", this.file);
+            data.append("image", this.file2);
+            data.append("image", this.file3);
+
+            // Make the API request
+            axios
+              .post("https://8649-197-53-248-20.eu.ngrok.io/add_face", data)
+              .then((response) => {
+                // Handle the response
+                console.log(response.data);
+              })
+              .catch((error) => {
+                // Handle the error
+                console.error(error);
+              });
           })
           .catch((error) => {
             console.log(error.response.data.message.image[0]);
