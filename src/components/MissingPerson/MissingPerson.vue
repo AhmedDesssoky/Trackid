@@ -339,7 +339,7 @@ export default {
             },
           })
           .then((response) => {
-            console.log(response.data.data.id);
+            console.log(response.data);
             this.id = response.data.data.id;
             this.redirectTo({ val: "ThePerson" });
 
@@ -351,10 +351,10 @@ export default {
 
             // Make the API request
             axios
-              .post("https://8649-197-53-248-20.eu.ngrok.io/add_face", data)
+              .post("https://4b0d-197-53-248-20.eu.ngrok.io/add_face", data)
               .then((response) => {
                 // Handle the response
-                console.log(response.data);
+                console.log(response);
               })
               .catch((error) => {
                 // Handle the error
@@ -362,12 +362,13 @@ export default {
               });
           })
           .catch((error) => {
-            console.log(error.response.data.message.image[0]);
-            console.log(error.response.data.message.image2[0]);
-            console.log(error.response.data.message.image3[0]);
-            this.imagerequred = error.response.data.message.image[0];
-            this.imagerequred2 = error.response.data.message.image2[0];
-            this.imagerequred3 = error.response.data.message.image3[0];
+            console.log(error);
+            // console.log(error.response.data.message.image[0]);
+            // console.log(error.response.data.message.image2[0]);
+            // console.log(error.response.data.message.image3[0]);
+            // this.imagerequred = error.response.data.message.image[0];
+            // this.imagerequred2 = error.response.data.message.image2[0];
+            // this.imagerequred3 = error.response.data.message.image3[0];
           });
       } else {
         console.log("error");
