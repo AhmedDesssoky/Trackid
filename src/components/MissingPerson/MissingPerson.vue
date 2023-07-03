@@ -78,16 +78,42 @@
                 type="file"
                 class="form-control py-1 rounded-pill"
                 placeholder="اختر صوره"
-                @change="onFileChange"
+                @change="onFileChange1"
                 @input="handleKeyUp"
               />
-              <!-- <span
-                class="error-feedback text-danger float-lg-right"
-                v-if="v$.file.$error"
-                >{{ fileErrorMessage(v$.file) }}</span
-              > -->
               <span class="error-feedback text-danger" v-if="imagerequred">
                 {{ imagerequred }}
+              </span>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <div class="form-group col-12 mx-auto d-block">
+              <h3>صورة الطفل</h3>
+              <input
+                type="file"
+                class="form-control py-1 rounded-pill"
+                placeholder="اختر صوره"
+                @change="onFileChange2"
+                @input="handleKeyUp2"
+              />
+
+              <span class="error-feedback text-danger" v-if="imagerequred2">
+                {{ imagerequred2 }}
+              </span>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <div class="form-group col-12 mx-auto d-block">
+              <h3>صورة الطفل</h3>
+              <input
+                type="file"
+                class="form-control py-1 rounded-pill"
+                placeholder="اختر صوره"
+                @change="onFileChange3"
+                @input="handleKeyUp3"
+              />
+              <span class="error-feedback text-danger" v-if="imagerequred3">
+                {{ imagerequred3 }}
               </span>
             </div>
           </div>
@@ -175,10 +201,14 @@ export default {
       age: "",
       city: "",
       file: null,
+      file2: null,
+      file3: null,
       fatherName: "",
       phone: "",
       nationalNumber: "",
       imagerequred: "",
+      imagerequred2: "",
+      imagerequred3: "",
     };
   },
   validations() {
@@ -204,8 +234,14 @@ export default {
     };
   },
   methods: {
-    onFileChange(event) {
+    onFileChange1(event) {
       this.file = event.target.files[0];
+    },
+    onFileChange2(event) {
+      this.file2 = event.target.files[0];
+    },
+    onFileChange3(event) {
+      this.file3 = event.target.files[0];
     },
     ...mapActions(["redirectTo"]),
     nameErrorMessage(v) {
@@ -289,6 +325,8 @@ export default {
         formData.append("age", this.age);
         formData.append("city", this.city);
         formData.append("image", this.file);
+        formData.append("image2", this.file2);
+        formData.append("image3", this.file3);
         formData.append("fatherName", this.fatherName);
         formData.append("phone", this.phone);
         formData.append("nationalNumber", this.nationalNumber);
@@ -300,14 +338,16 @@ export default {
             },
           })
           .then((response) => {
-            console.log(response.data);
+            console.log(response);
             this.redirectTo({ val: "ThePerson" });
           })
           .catch((error) => {
-            console.log(error.response.data.message.image);
-
+            console.log(error.response.data.message.image[0]);
+            console.log(error.response.data.message.image2[0]);
+            console.log(error.response.data.message.image3[0]);
             this.imagerequred = error.response.data.message.image[0];
-            // this.imagefail = error.response.data.message.image[1];
+            this.imagerequred2 = error.response.data.message.image2[0];
+            this.imagerequred3 = error.response.data.message.image3[0];
           });
       } else {
         console.log("error");
@@ -315,6 +355,14 @@ export default {
     },
     handleKeyUp() {
       this.imagerequred = "";
+      this.imagerequred2 = "";
+      this.imagerequred3 = "";
+    },
+    handleKeyUp2() {
+      this.imagerequred2 = "";
+    },
+    handleKeyUp3() {
+      this.imagerequred3 = "";
     },
   },
 };
