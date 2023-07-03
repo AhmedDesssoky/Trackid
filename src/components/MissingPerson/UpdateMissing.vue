@@ -137,7 +137,7 @@
                 class="btn btn-info bg-info btn-block rounded-pill log w-25 text-white"
                 @click="update()"
               >
-                بلغ الأن
+                تعديل
               </button>
             </div>
           </div>
