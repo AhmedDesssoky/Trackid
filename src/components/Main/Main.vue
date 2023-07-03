@@ -61,5 +61,14 @@ export default {
   body > section.img > div > p {
     top: 0 !important;
   }
+  .overlay p {
+    color: rgba(0, 0, 0, 0.7) !important;
+    position: absolute !important;
+    top: 40% !important;
+    right: 50%;
+    font-size: 41px;
+    background-color: transparent !important;
+    text-align: center;
+  }
 }
 </style>

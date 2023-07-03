@@ -124,13 +124,6 @@
                           الهاتف :{{ selectedItem.phone }}
                         </h3>
                       </div>
-                      <div
-                        class="d-flex align-item-center justify-content-between mobil"
-                      >
-                        <h3 class="text-dark">
-                          الرقم القومي :{{ selectedItem.nationalNumber }}
-                        </h3>
-                      </div>
                     </div>
                   </div>
                 </div>

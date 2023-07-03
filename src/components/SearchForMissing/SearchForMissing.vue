@@ -10,7 +10,7 @@
             <h3 for="">التحقق اذا كان الشخص مفقود ام لا</h3>
             <input
               type="file"
-              class="form-control py-1 rounded-pill"
+              class="form-control w-50 py-1 rounded-pill"
               @change="onFileChange"
             />
             <span
@@ -61,6 +61,34 @@
       </div>
     </div>
   </div>
+  <div v-if="show" class="container mt-5">
+    <div class="row m-auto d-flex align-item-center justify-content-center">
+      <div class="col-md-4 border">
+        <div class="content">
+          <img :src="image + user.image" class="img-fluid mt-2" alt="..." />
+
+          <div
+            class="mt-3 d-flex align-item-center justify-content-between mobil"
+          >
+            <h3>الاسم :{{ user.name }}</h3>
+            <h3>المحافظه :{{ user.governorate }}</h3>
+          </div>
+          <div class="d-flex align-item-center justify-content-between mobil">
+            <h3>المدينه :{{ user.city }}</h3>
+            <h3>العمر :{{ user.age }}</h3>
+          </div>
+          <div class="d-flex align-item-center justify-content-between mobil">
+            <h3>اسم الاب :{{ user.fatherName }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex align-item-center justify-content-center">
+      <h3 class="alert alert-success text-dark mt-4">
+        يمكنك التواصل مع صاحب الحاله عن طريق الهاتف : {{ user.phone }}
+      </h3>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -74,6 +102,9 @@ export default {
       v$: useValidate(),
       file: null,
       id: null,
+      user: [],
+      image: "https://missing-person.online/public/images/",
+      show: false,
     };
   },
   validations() {
@@ -94,15 +125,29 @@ export default {
     search() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-        const image = this.file;
+        const formData = new FormData();
+        formData.append("image", this.file); // Assuming 'this.file' is the file you want to send
+
         axios
           .post(
-            "https://54f0-156-214-155-213.eu.ngrok.io/recognize_faces",
-            image
+            "https://3894-156-214-155-213.eu.ngrok.io/recognize_faces",
+            formData
           )
           .then((response) => {
-            console.log(response);
+            this.id = response.data[0].id;
+            console.log(this.id);
+            axios
+              .get(
+                `https://missing-person.online/public/api/missing/${this.id}`
+              )
+              .then((response) => {
+                // console.log(response.data);
+                this.user = response.data.data;
+                this.show = true;
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           })
           .catch((error) => {
             console.log(error);
