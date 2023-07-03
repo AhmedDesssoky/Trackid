@@ -63,7 +63,7 @@
 
   <router-view />
   <footer class="mt-5">
-    <p class="text-center">جميع الحقوق محفوظة © 2023 MissingPerson</p>
+    <p class="text-center">جميع الحقوق محفوظة © 2023 TrackId</p>
   </footer>
 </template>
 <script>

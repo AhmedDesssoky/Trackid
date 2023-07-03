@@ -1,12 +1,12 @@
 <template>
   <div class="container text-center">
-    <h1 class="text-center">missing person</h1>
+    <h1 class="text-center">TrackId</h1>
     <h4 class="text-center">
       نحن نرسم ابتسامة, نمسح دمعة, ونُعيد الأمل المفقود
     </h4>
     <br />
     <p class="text-right">
-      ميسينج بيرسون هي منصة الكترونية مستقلة تهدف الى توحيد الجهود للتبليغ
+      نحن هي منصة الكترونية مستقلة تهدف الى توحيد الجهود للتبليغ
       والبحث عن المفقودين في مصر
     </p>
     <br />
