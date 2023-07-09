@@ -30,6 +30,7 @@
     "popper.js": "^1.16.1",
     "vue": "^3.2.47",
     "vue-plugin-load-script": "^2.1.1",
+    "vue-recaptcha": "^3.0.0-alpha.5",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },

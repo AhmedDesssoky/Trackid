@@ -339,7 +339,7 @@ export default {
             },
           })
           .then((response) => {
-            console.log(response.data);
+            console.log(response.data.data.id);
             this.id = response.data.data.id;
             this.redirectTo({ val: "ThePerson" });
 
@@ -351,7 +351,7 @@ export default {
 
             // Make the API request
             axios
-              .post("https://4b0d-197-53-248-20.eu.ngrok.io/add_face", data)
+              .post("https://4da7-197-53-172-199.eu.ngrok.io/add_face", data)
               .then((response) => {
                 // Handle the response
                 console.log(response);

@@ -7,13 +7,7 @@
         </div>
       </div>
     </div>
-    <div>
-      <!-- <ul>
-        <li v-for="item in items.data" :key="item.id">
-            <h3 class="text-dark">الاسم :{{ item.name }}</h3>
-        </li>
-      </ul> -->
-    </div>
+    <div></div>
     <div class="container">
       <input
         type="text"
