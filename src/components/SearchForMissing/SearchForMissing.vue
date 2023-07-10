@@ -137,7 +137,7 @@ export default {
 
         axios
           .post(
-            "https://4da7-197-53-172-199.eu.ngrok.io/recognize_faces",
+            "https://7ef2-156-214-83-11.eu.ngrok.io/recognize_faces",
             formData
           )
           .then((response) => {
@@ -145,19 +145,20 @@ export default {
             console.log(this.id);
             if (this.id === "Unknown") {
               this.err = "هذا الطفل غير موجود ";
+            } else {
+              axios
+                .get(
+                  `https://missing-person.online/public/api/missing/${this.id}`
+                )
+                .then((response) => {
+                  // console.log(response.data);
+                  this.user = response.data.data;
+                  this.show = true;
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
             }
-            axios
-              .get(
-                `https://missing-person.online/public/api/missing/${this.id}`
-              )
-              .then((response) => {
-                // console.log(response.data);
-                this.user = response.data.data;
-                this.show = true;
-              })
-              .catch((error) => {
-                console.log(error);
-              });
           })
           .catch((error) => {
             console.log(error);
