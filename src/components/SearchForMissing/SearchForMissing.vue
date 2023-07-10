@@ -137,7 +137,7 @@ export default {
 
         axios
           .post(
-            "https://7367-156-196-224-32.eu.ngrok.io/recognize_faces",
+            "https://21a2-156-196-224-32.eu.ngrok.io/recognize_faces",
             formData
           )
           .then((response) => {
