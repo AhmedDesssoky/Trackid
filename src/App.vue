@@ -17,7 +17,7 @@
       <router-link to="/" class="nav-link">
         <a
           class="navbar-brand brand d-flex justify-content-center align-items-center logo"
-          ><img src="@/assets/missing.png" alt="" srcset="" class="img-fluid"
+          ><img src="@/assets/logo2.png" alt="" srcset="" class="img-fluid"
         /></a>
       </router-link>
       <button
@@ -111,7 +111,7 @@ footer {
   color: white !important;
 }
 .logo {
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
 }
 </style>
