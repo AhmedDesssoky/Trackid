@@ -351,7 +351,7 @@ export default {
 
             // Make the API request
             axios
-              .post("https://79ce-197-53-151-36.eu.ngrok.io/add_face", data)
+              .post("https://a039-197-53-151-36.eu.ngrok.io/add_face", data)
               .then((response) => {
                 // Handle the response
                 console.log(response);

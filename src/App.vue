@@ -38,14 +38,15 @@
               >الأشخاص المفقودون
             </router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/missing-person"
-              >بلّغ عن شخص مفقود</router-link
-            >
-          </li>
+
           <li class="nav-item">
             <router-link class="nav-link" to="/search-person"
               >بحث عن شخص مفقود</router-link
+            >
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/missing-person"
+              >بلّغ عن شخص مفقود</router-link
             >
           </li>
           <li class="nav-item">
