@@ -7,7 +7,7 @@
       <router-link to="/signup" class="nav-link">تسجيل</router-link>
     </div>
     <div class="d-flex">
-      <button @click="logout()" class="nav-link btn btn-info bg-info mt-1">
+      <button @click="logout()" class="nav-link btn btn-info bg-info my-1">
         خروج
       </button>
     </div>

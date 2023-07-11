@@ -351,7 +351,7 @@ export default {
 
             // Make the API request
             axios
-              .post("https://60c8-197-53-149-239.eu.ngrok.io/add_face", data)
+              .post("https://79ce-197-53-151-36.eu.ngrok.io/add_face", data)
               .then((response) => {
                 // Handle the response
                 console.log(response);
@@ -363,12 +363,12 @@ export default {
           })
           .catch((error) => {
             console.log(error);
-            // console.log(error.response.data.message.image[0]);
-            // console.log(error.response.data.message.image2[0]);
-            // console.log(error.response.data.message.image3[0]);
-            // this.imagerequred = error.response.data.message.image[0];
-            // this.imagerequred2 = error.response.data.message.image2[0];
-            // this.imagerequred3 = error.response.data.message.image3[0];
+            console.log(error.response.data.message.image[0]);
+            console.log(error.response.data.message.image2[0]);
+            console.log(error.response.data.message.image3[0]);
+            this.imagerequred = error.response.data.message.image[0];
+            this.imagerequred2 = error.response.data.message.image2[0];
+            this.imagerequred3 = error.response.data.message.image3[0];
           });
       } else {
         console.log("error");
